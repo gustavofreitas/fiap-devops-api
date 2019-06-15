@@ -18,7 +18,7 @@ function createArgumentSettings(settings) {
   settings.environment = commandLineArgs[3] ? commandLineArgs[3].toLowerCase() : 'prod';
   settings.hostName = commandLineArgs[4] ? commandLineArgs[4] : '127.0.0.1';
   settings.masterPort =  commandLineArgs[5] ? parseInt(commandLineArgs[5]) : 3000;
-  settings.workerPort =  commandLineArgs[6] ? parseInt(commandLineArgs[6]) : process.env.port;
+  settings.workerPort =  commandLineArgs[6] ? parseInt(commandLineArgs[6]) : 8080;
 }
 
 function loadConfigSettings(settings) {
