@@ -62,7 +62,7 @@ async function insert(paste) {
         .input('title', sql.VarChar, paste.title)
         .query('insert into paste values (@content, @timeStamp, @title)')
 
-    return await getAll();
+    return true;
   } finally {
     sql.close();
   }
