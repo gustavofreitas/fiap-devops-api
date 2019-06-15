@@ -57,10 +57,12 @@ async function insert(paste) {
   try{
     let pool = await sql.connect(config)
     let result1 = await pool.request()
-        .input('input_parameter', sql.Int, id)
-        .query('select * from paste')
+        .input('content', sql.VarChar, paste.content)
+        .input('timeStamp', sql.BigInt, paste.timeStamp)
+        .input('title', sql.varchar, paste.title)
+        .query('insert into paste values (@content, @timeStamp, @title)')
 
-    return result1.recordset;
+    return await getAll();
   } finally {
     sql.close();
   }

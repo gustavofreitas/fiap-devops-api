@@ -10,8 +10,7 @@ function lookup(id) {
 function create(note) {
   note.timeStamp = new Date().getTime();
   console.log(new Date().getTime());
-  notes.push(note);
-  return notes;
+  return this.pasteBinRepository_.insert(note);
 }
 
 function getAll() {
