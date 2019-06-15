@@ -17,7 +17,7 @@ function getAll() {
 }
 
 function remove(id) {
-
+  return this.pasteBinRepository_.delete(id);
 }
 
 var notes = [

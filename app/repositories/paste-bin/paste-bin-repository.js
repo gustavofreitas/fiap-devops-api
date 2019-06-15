@@ -44,10 +44,9 @@ async function remove() {
     let pool = await sql.connect(config)
     let result1 = await pool.request()
         .input('input_parameter', sql.Int, id)
-        .query('delete from paste where id = @input_parameter').
+        .query('delete from paste where id = @input_parameter')
 
-    result1.close();
-    return result1.recordset;
+    return true;
   } finally {
     sql.close();
   }
