@@ -40,26 +40,30 @@ async function getAll() {
 }
 
 async function remove() {
+  try {
+    let pool = await sql.connect(config)
+    let result1 = await pool.request()
+        .input('input_parameter', sql.Int, id)
+        .query('delete from paste where id = @input_parameter').
 
-  let pool = await sql.connect(config)
-  let result1 = await pool.request()
-      .input('input_parameter', sql.Int, id)
-      .query('select * from paste').
-
-  result1.close();
-  return result1.recordset;
-  
+    result1.close();
+    return result1.recordset;
+  } finally {
+    sql.close();
+  }
 }
 
 async function insert(paste) {
+  try{
+    let pool = await sql.connect(config)
+    let result1 = await pool.request()
+        .input('input_parameter', sql.Int, id)
+        .query('select * from paste')
 
-  let pool = await sql.connect(config)
-  let result1 = await pool.request()
-      .input('input_parameter', sql.Int, id)
-      .query('select * from paste')
-
-  return result1.recordset;
-  
+    return result1.recordset;
+  } finally {
+    sql.close();
+  }
 }
 
 PasteBinRepository.prototype = {
