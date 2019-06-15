@@ -12,8 +12,8 @@ function get(req, res, next) {
 }
 
 function post(req,res, next){
-  var id = req.params.pasteId;
-  this.pasteBinService_.create(id).then( result => {
+  var newPaste = req.body;
+  this.pasteBinService_.create(newPaste).then( result => {
     if(result){
       this.pasteBinService_.getAll().then(list => {
         res.status(200).json(list)
@@ -24,16 +24,14 @@ function post(req,res, next){
 }
 
 function remove(req, res, next) {
-  var newPaste = req.body;
-  var list = this.pasteBinService_.delete(newPaste).then( result => {
+  var id = req.params.pasteId;
+  this.pasteBinService_.delete(id).then( result => {
     if(result){
       this.pasteBinService_.getAll().then(list => {
         res.status(200).json(list)
       })
     }
-    
   })
-  res.status(200).json({method: 'delete'});
 }
 
 PasteBinController.prototype = {
