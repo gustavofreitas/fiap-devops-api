@@ -1,0 +1,24 @@
+{
+  "routes": [
+    {
+      "route": "/v1/bin/:pasteId",
+      "method": "GET",
+      "controller": "../controllers/v1/bin/paste-bin-controller"
+    },
+    {
+      "route": "/v1/bin/:pastId",
+      "method": "DELETE",
+      "controller": "../controllers/v1/bin/paste-bin-controller"
+    },
+    {
+      "route": "/v1/bin",
+      "method": "POST",
+      "controller": "../controllers/v1/bin/paste-bin-controller"
+    },
+    {
+      "route": "/v1/bin",
+      "method": "GET",
+      "controller": "../controllers/v1//bin/paste-bin-list-controller"
+    }
+  ]
+}
