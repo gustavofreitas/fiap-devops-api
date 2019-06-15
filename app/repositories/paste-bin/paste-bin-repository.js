@@ -59,7 +59,7 @@ async function insert(paste) {
     let result1 = await pool.request()
         .input('content', sql.VarChar, paste.content)
         .input('timeStamp', sql.BigInt, paste.timeStamp)
-        .input('title', sql.varchar, paste.title)
+        .input('title', sql.VarChar, paste.title)
         .query('insert into paste values (@content, @timeStamp, @title)')
 
     return await getAll();
