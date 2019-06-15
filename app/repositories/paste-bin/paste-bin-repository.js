@@ -39,7 +39,7 @@ async function getAll() {
  }
 }
 
-async function remove() {
+async function remove(id) {
   try {
     let pool = await sql.connect(config)
     let result1 = await pool.request()
