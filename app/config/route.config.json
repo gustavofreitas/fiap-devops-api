@@ -6,7 +6,7 @@
       "controller": "../controllers/v1/bin/paste-bin-controller"
     },
     {
-      "route": "/v1/bin/:pastId",
+      "route": "/v1/bin/:pasteId",
       "method": "DELETE",
       "controller": "../controllers/v1/bin/paste-bin-controller"
     },
