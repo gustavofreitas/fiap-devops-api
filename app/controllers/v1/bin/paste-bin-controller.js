@@ -13,8 +13,9 @@ function get(req, res, next) {
 
 function post(req,res, next){
   var newPaste = req.body;
-  var list = this.pasteBinService_.create(newPaste)
-  res.status(200).json(list)
+  var list = this.pasteBinService_.create(newPaste).then(list => {
+    res.status(200).json(list)
+  })
 }
 
 function remove(req, res, next) {

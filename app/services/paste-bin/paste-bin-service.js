@@ -9,7 +9,6 @@ function lookup(id) {
 
 function create(note) {
   note.timeStamp = new Date().getTime();
-  console.log(new Date().getTime());
   return this.pasteBinRepository_.insert(note);
 }
 
